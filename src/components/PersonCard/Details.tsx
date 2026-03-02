@@ -7,7 +7,6 @@ import { Icon } from "@iconify/react";
 import {
   LocationRegular
 } from "@fluentui/react-icons";
-/* import { Link } from "@fluentui/react-components"; */
 import { RenderAttribute } from "../RenderAttribute";
 import { StackV2 as Stack } from "@spteck/react-controls";
  
@@ -17,20 +16,9 @@ export const Details: React.FunctionComponent<IPersonCardProps> = (
   props: React.PropsWithChildren<IPersonCardProps>
 ) => {
   const { person, showDetails } = props;
-  const { /* mail, phone, */ department, location, userType } = person;
+  const { department, location, userType } = person;
  
   const { styles } = usePersonCardStyles( );
-
-/*   const handleEmailClick = (
-    emailAddress: string
-  ): ((e: React.MouseEvent) => void) => {
-    return (e: React.MouseEvent) => {
-      e.stopPropagation();
-      e.preventDefault();
-
-      window.open(`mailto:${emailAddress}`, "_blank");
-    };
-  }; */
 
   if (!showDetails) return null;
 
@@ -38,42 +26,6 @@ export const Details: React.FunctionComponent<IPersonCardProps> = (
     <>
       {showDetails && (
         <Stack>
-          {/*  <RenderAttribute
-            label="Email"
-            value={
-              mail ? (
-                <Link 
-                  onClick={handleEmailClick(mail)}
-                  className={styles.linkTruncate}
-                >
-                  {mail}
-                </Link>
-              ) : (
-                mail
-              )
-            }
-            icon={<MailRegular className={styles.icon} />}
-          />
- */}
-          {/*   <RenderAttribute
-            label="Phone"
-            value={
-              phone ? (
-                <Link
-                  href={`tel:${phone}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className={styles.linkTruncate}
-                >
-                  {phone}
-                </Link>
-              ) : (
-                phone
-              )
-            }
-            icon={<PhoneRegular className={styles.icon} />}
-          /> */}
           <Divider style={{ paddingBottom: "8px" }} />
 
           <Stack

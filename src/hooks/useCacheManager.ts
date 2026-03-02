@@ -25,9 +25,7 @@ export const useCacheManager = (): ICacheManager => {
    */
   const clearAllCaches = useCallback(async (): Promise<void> => {
     try {
-      console.log('[CacheManager] Clearing all caches...');
       await orgCache.clearAllCache();
-      console.log('[CacheManager] All caches cleared successfully');
     } catch (error) {
       console.error('[CacheManager] Error clearing caches:', error);
       throw error;
@@ -90,21 +88,11 @@ export const CacheKeys = {
  * Cache performance monitoring utilities
  */
 export const CacheMonitor = {
-  /**
-   * Log cache hit/miss for monitoring
-   */
-  logCacheAccess: (operation: string, key: string, hit: boolean): void => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`[Cache${hit ? 'Hit' : 'Miss'}] ${operation}: ${key}`);
-    }
+  logCacheAccess: (_operation: string, _key: string, _hit: boolean): void => {
+    // Performance monitoring - no-op in production
   },
 
-  /**
-   * Log cache operation performance
-   */
-  logCachePerformance: (operation: string, key: string, duration: number): void => {
-    if (process.env.NODE_ENV === 'development' && duration > 100) {
-      console.warn(`[CachePerf] Slow ${operation} for ${key}: ${duration}ms`);
-    }
+  logCachePerformance: (_operation: string, _key: string, _duration: number): void => {
+    // Performance monitoring - no-op in production
   },
 };

@@ -1,4 +1,3 @@
-/* eslint-disable require-atomic-updates */
 import * as React from "react";
 
 import { Actions, RenderPersonHeader, useCardActions } from "../PersonCard";
@@ -228,7 +227,7 @@ export const ListView: React.FunctionComponent<IListViewProps> = ({
           })
         );
       } finally {
-        
+        // eslint-disable-next-line require-atomic-updates
         isScrollLoadingRef.current = false;
       }
     },

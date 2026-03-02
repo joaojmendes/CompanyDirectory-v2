@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from "react";
 
 import { Caption1, ProgressBar } from "@fluentui/react-components";
@@ -57,7 +55,7 @@ export const RenderPeers: React.FunctionComponent<IRenderPeersProps> = () => {
           setAllPeers([]);
           setHasMore(false);
         }
-     })();
+     })().catch(() => { /* handled internally */ });
     
   }, []);
 

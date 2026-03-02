@@ -169,7 +169,6 @@ var useUtils = function () {
                     }
                     // Check if user already has a color assigned
                     if (colorMappings[aadUserId]) {
-                        console.log("Using cached color for user: ".concat(aadUserId));
                         return [2 /*return*/, colorMappings[aadUserId]];
                     }
                     usedColors_1 = Object.values(colorMappings);
@@ -188,7 +187,6 @@ var useUtils = function () {
                     return [4 /*yield*/, setData(cacheKey, colorMappings)];
                 case 3:
                     _a.sent();
-                    console.log("Assigned new color to user ".concat(aadUserId, ": ").concat(availableColor));
                     return [2 /*return*/, availableColor];
                 case 4:
                     error_1 = _a.sent();
@@ -208,7 +206,6 @@ var useUtils = function () {
                     return [4 /*yield*/, clearAllCache()];
                 case 1:
                     _a.sent();
-                    console.log("User colors cache cleared");
                     return [3 /*break*/, 3];
                 case 2:
                     error_2 = _a.sent();

@@ -20,11 +20,9 @@ var useCacheManager = function () {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    console.log('[CacheManager] Clearing all caches...');
                     return [4 /*yield*/, orgCache.clearAllCache()];
                 case 1:
                     _a.sent();
-                    console.log('[CacheManager] All caches cleared successfully');
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _a.sent();
@@ -91,21 +89,11 @@ exports.CacheKeys = {
  * Cache performance monitoring utilities
  */
 exports.CacheMonitor = {
-    /**
-     * Log cache hit/miss for monitoring
-     */
-    logCacheAccess: function (operation, key, hit) {
-        if (process.env.NODE_ENV === 'development') {
-            console.log("[Cache".concat(hit ? 'Hit' : 'Miss', "] ").concat(operation, ": ").concat(key));
-        }
+    logCacheAccess: function (_operation, _key, _hit) {
+        // Performance monitoring - no-op in production
     },
-    /**
-     * Log cache operation performance
-     */
-    logCachePerformance: function (operation, key, duration) {
-        if (process.env.NODE_ENV === 'development' && duration > 100) {
-            console.warn("[CachePerf] Slow ".concat(operation, " for ").concat(key, ": ").concat(duration, "ms"));
-        }
+    logCachePerformance: function (_operation, _key, _duration) {
+        // Performance monitoring - no-op in production
     },
 };
 //# sourceMappingURL=useCacheManager.js.map

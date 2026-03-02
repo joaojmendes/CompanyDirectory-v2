@@ -1,5 +1,3 @@
-/* eslint-disable no-constant-condition */
-/* eslint-disable @typescript-eslint/no-floating-promises */
 import * as React from "react";
 
 import { Divider, Spinner } from "@fluentui/react-components";
@@ -135,7 +133,7 @@ export const OrganizationChart: React.FunctionComponent<
         })
       );
       await fetchUserData(aadUserId);
-    })();
+    })().catch(() => { /* handled internally */ });
   }, []);
 
   React.useEffect(() => {
@@ -147,7 +145,7 @@ export const OrganizationChart: React.FunctionComponent<
           setSelectedPickerUsers([]);
         }
       }
-    })();
+    })().catch(() => { /* handled internally */ });
   }, [selectedUser]);
 
   // update Global State

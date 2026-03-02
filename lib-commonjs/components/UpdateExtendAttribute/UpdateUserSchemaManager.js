@@ -17,10 +17,8 @@ var UpdateUserSchemaManager = function (_a) {
     var handleCloseDrawer = React.useCallback(function () {
         setIsDrawerOpen(false);
     }, []);
-    var handleSuccess = React.useCallback(function (userId, data) {
-        console.log("User schema updated successfully:", { userId: userId, data: data });
-        // Optionally keep drawer open or close it
-        // setIsDrawerOpen(false);
+    var handleSuccess = React.useCallback(function (_userId, _data) {
+        // Schema update succeeded
     }, []);
     return ((0, jsx_runtime_1.jsxs)("div", { className: className, children: [(0, jsx_runtime_1.jsx)(react_components_1.Button, { appearance: "primary", icon: (0, jsx_runtime_1.jsx)(react_icons_1.Edit24Regular, {}), onClick: handleOpenDrawer, children: buttonText }), (0, jsx_runtime_1.jsxs)(react_components_1.OverlayDrawer, { open: isDrawerOpen, onOpenChange: function (_, _a) {
                     var open = _a.open;

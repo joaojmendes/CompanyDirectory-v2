@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from "react";
 
 import { Caption1, ProgressBar } from "@fluentui/react-components";
@@ -73,7 +71,7 @@ export const RenderDirectReports: React.FunctionComponent<
         setAllDirectReports([]);
         setHasMore(false);
       }
-    })();
+    })().catch(() => { /* handled internally */ });
   }, []);
 
   // Check which direct reports have their own direct reports (parallel execution for performance)
@@ -111,7 +109,7 @@ export const RenderDirectReports: React.FunctionComponent<
       }
     };
 
-    checkDirectReportsInParallel();
+    checkDirectReportsInParallel().catch(() => { /* handled internally */ });
   }, [allDirectReports, getTotalDirectReports]);
 
   const isCurrentUser = React.useCallback(
@@ -216,8 +214,6 @@ export const RenderDirectReports: React.FunctionComponent<
 
   if (!allDirectReports || allDirectReports.length === 0) {
     return <></>;
-  } else {
-    console.log("direct reports count", allDirectReports.length);
   }
 
 

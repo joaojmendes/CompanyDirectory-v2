@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { css } from '@emotion/css';
 import { tokens } from '@fluentui/react-components';
 

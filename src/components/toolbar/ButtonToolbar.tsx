@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import * as React from 'react';
 
 import {
@@ -31,7 +29,7 @@ import { appGlobalStateAtom } from '../../atoms/appGlobalState';
 import { css } from '@emotion/css';
 import { useAtomValue } from 'jotai';
 
-const useStyles = () => {
+const useStyles = (): Record<string, string> => {
   return {
     container: css({
       display: "flex",
@@ -90,6 +88,7 @@ export const ButtonToolBar: React.FunctionComponent<IButtonToolBarProps> = (
             </Button>
           </OverflowItem>
         ))}
+        {/* eslint-disable-next-line @typescript-eslint/no-use-before-define */}
         <OverflowMenu items={items} onSelectedItem={onSelectedItem} />
       </div>
     </Overflow>

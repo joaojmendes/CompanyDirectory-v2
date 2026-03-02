@@ -6,24 +6,13 @@ var React = tslib_1.__importStar(require("react"));
 var react_components_1 = require("@fluentui/react-components");
 var react_1 = require("@iconify/react");
 var react_icons_1 = require("@fluentui/react-icons");
-/* import { Link } from "@fluentui/react-components"; */
 var RenderAttribute_1 = require("../RenderAttribute");
 var react_controls_1 = require("@spteck/react-controls");
 var usePersonCardStyles_1 = require("./usePersonCardStyles");
 var Details = function (props) {
     var person = props.person, showDetails = props.showDetails;
-    var /* mail, phone, */ department = person.department, location = person.location, userType = person.userType;
+    var department = person.department, location = person.location, userType = person.userType;
     var styles = (0, usePersonCardStyles_1.usePersonCardStyles)().styles;
-    /*   const handleEmailClick = (
-        emailAddress: string
-      ): ((e: React.MouseEvent) => void) => {
-        return (e: React.MouseEvent) => {
-          e.stopPropagation();
-          e.preventDefault();
-    
-          window.open(`mailto:${emailAddress}`, "_blank");
-        };
-      }; */
     if (!showDetails)
         return null;
     return (React.createElement(React.Fragment, null, showDetails && (React.createElement(react_controls_1.StackV2, null,

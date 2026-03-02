@@ -37,31 +37,23 @@ var UpdateUserSchema = function (_a) {
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log("Loading user data for:", {
-                            userId: selectedUser === null || selectedUser === void 0 ? void 0 : selectedUser.id,
-                            displayName: selectedUser === null || selectedUser === void 0 ? void 0 : selectedUser.displayName
-                        });
                         if (!(selectedUser === null || selectedUser === void 0 ? void 0 : selectedUser.id)) {
-                            console.log("No user selected, skipping data load");
                             setHasLoadedUserData(false);
                             return [2 /*return*/];
                         }
                         setIsLoadingUserData(true);
-                        setSuccessMessage(""); // Clear any previous success message
+                        setSuccessMessage("");
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, 4, 5]);
-                        console.log("Fetching schema extension data for user:", selectedUser.id);
                         return [4 /*yield*/, getUserSchemaExtension(selectedUser.id)];
                     case 2:
                         userData = _a.sent();
-                        console.log("Received user data:", userData);
                         if (!isCancelled && userData) {
                             setFormData(userData);
                         }
                         if (!isCancelled) {
                             setHasLoadedUserData(true);
-                            console.log("User data loaded successfully");
                         }
                         return [3 /*break*/, 5];
                     case 3:
@@ -89,12 +81,6 @@ var UpdateUserSchema = function (_a) {
     // Handle user selection
     var handleUserSelection = React.useCallback(function (users) {
         var user = users.length > 0 ? users[0] : undefined;
-        console.log("User selection changed:", {
-            selectedUsers: users,
-            selectedUser: user,
-            userId: user === null || user === void 0 ? void 0 : user.id,
-            displayName: user === null || user === void 0 ? void 0 : user.displayName
-        });
         setSelectedUser(user);
         setSuccessMessage("");
         if (!user) {
@@ -129,29 +115,16 @@ var UpdateUserSchema = function (_a) {
                 case 0:
                     event.preventDefault();
                     event.stopPropagation();
-                    console.log("Form submit triggered. Current state:", {
-                        selectedUser: selectedUser === null || selectedUser === void 0 ? void 0 : selectedUser.displayName,
-                        selectedUserId: selectedUser === null || selectedUser === void 0 ? void 0 : selectedUser.id,
-                        hasLoadedUserData: hasLoadedUserData,
-                        isLoading: isLoading,
-                        isLoadingUserData: isLoadingUserData
-                    });
-                    // Clear any previous messages
                     setSuccessMessage("");
-                    // Validate that a user is selected
                     if (!(selectedUser === null || selectedUser === void 0 ? void 0 : selectedUser.id)) {
-                        console.error("No user selected for update");
                         return [2 /*return*/];
                     }
-                    // Validate that user data has been loaded
                     if (!hasLoadedUserData) {
-                        console.error("User data not loaded yet");
                         return [2 /*return*/];
                     }
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    console.log("Updating user schema for:", selectedUser.displayName, "with data:", formData);
                     return [4 /*yield*/, updateUserSchemaExtension(selectedUser.id, formData)];
                 case 2:
                     _a.sent();

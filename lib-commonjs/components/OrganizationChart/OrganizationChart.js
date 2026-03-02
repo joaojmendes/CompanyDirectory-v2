@@ -2,8 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrganizationChart = void 0;
 var tslib_1 = require("tslib");
-/* eslint-disable no-constant-condition */
-/* eslint-disable @typescript-eslint/no-floating-promises */
 var React = tslib_1.__importStar(require("react"));
 var react_components_1 = require("@fluentui/react-components");
 var m365_hooks_1 = require("@spteck/m365-hooks");
@@ -88,7 +86,7 @@ var OrganizationChart = function (props) {
                         return [2 /*return*/];
                 }
             });
-        }); })();
+        }); })().catch(function () { });
     }, []);
     React.useEffect(function () {
         (function () { return tslib_1.__awaiter(void 0, void 0, void 0, function () {
@@ -108,7 +106,7 @@ var OrganizationChart = function (props) {
                     case 2: return [2 /*return*/];
                 }
             });
-        }); })();
+        }); })().catch(function () { });
     }, [selectedUser]);
     // update Global State
     React.useEffect(function () {

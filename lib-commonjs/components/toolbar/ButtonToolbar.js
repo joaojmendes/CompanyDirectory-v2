@@ -2,8 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonToolBar = void 0;
 var tslib_1 = require("tslib");
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-use-before-define */
 var React = tslib_1.__importStar(require("react"));
 var react_components_1 = require("@fluentui/react-components");
 var react_icons_1 = require("@fluentui/react-icons");

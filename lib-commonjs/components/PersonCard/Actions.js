@@ -25,7 +25,6 @@ var Actions = function (props) {
     });
     var enableAction = React.useMemo(function () { return function (action) {
         var _a;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         var user = person;
         if (!person)
             return false;

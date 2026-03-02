@@ -2,8 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RenderDirectReports = void 0;
 var tslib_1 = require("tslib");
-/* eslint-disable @typescript-eslint/no-floating-promises */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 var React = tslib_1.__importStar(require("react"));
 var react_components_1 = require("@fluentui/react-components");
 var react_controls_1 = require("@spteck/react-controls");
@@ -61,7 +59,7 @@ var RenderDirectReports = function () {
                         return [2 /*return*/];
                 }
             });
-        }); })();
+        }); })().catch(function () { });
     }, []);
     // Check which direct reports have their own direct reports (parallel execution for performance)
     (0, react_1.useEffect)(function () {
@@ -113,7 +111,7 @@ var RenderDirectReports = function () {
                 }
             });
         }); };
-        checkDirectReportsInParallel();
+        checkDirectReportsInParallel().catch(function () { });
     }, [allDirectReports, getTotalDirectReports]);
     var isCurrentUser = React.useCallback(function (userId) {
         return userId === context.pageContext.legacyPageContext.aadUserId;
@@ -210,9 +208,6 @@ var RenderDirectReports = function () {
     }, [handleScroll]);
     if (!allDirectReports || allDirectReports.length === 0) {
         return React.createElement(React.Fragment, null);
-    }
-    else {
-        console.log("direct reports count", allDirectReports.length);
     }
     return (React.createElement(React.Fragment, null,
         React.createElement(react_components_1.Caption1, { style: {

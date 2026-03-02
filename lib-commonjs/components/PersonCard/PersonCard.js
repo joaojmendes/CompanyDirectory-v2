@@ -18,9 +18,6 @@ var PersonCard = function (props) {
     var _f = (0, usePersonCardStyles_1.usePersonCardStyles)(), getStyles = _f.getStyles, styles = _f.styles;
     var executeAction = (0, useCardActions_1.useCardActions)({ person: person }).executeAction;
     var handleCardCClick = React.useCallback(function () {
-        // When clicking a person card, set them as the selected user
-        // This will trigger lazy loading of their organization data
-        console.log("PersonCard clicked: ".concat(person.displayName, " (").concat(person.id, ") - Triggering lazy load of organization data"));
         setAppGlobalState(function (prevState) { return (tslib_1.__assign(tslib_1.__assign({}, prevState), { selectedUser: tslib_1.__assign({}, person) })); });
     }, [person, setAppGlobalState]);
     var className = getStyles(props);

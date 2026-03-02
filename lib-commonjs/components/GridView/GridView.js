@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GridView = void 0;
 var tslib_1 = require("tslib");
-/* eslint-disable require-atomic-updates */
 var React = tslib_1.__importStar(require("react"));
 var m365_hooks_1 = require("@spteck/m365-hooks");
 var react_1 = require("react");
@@ -59,9 +58,7 @@ var GridView = function (_a) {
                             (error && !isInitial)) {
                             return [2 /*return*/];
                         }
-                        // SCROLL PROTECTION: Prevent multiple simultaneous scroll requests
                         if (!isInitial && isScrollLoadingRef.current) {
-                            console.log("Scroll request blocked - already loading");
                             return [2 /*return*/];
                         }
                         _a.label = 1;
@@ -85,13 +82,16 @@ var GridView = function (_a) {
                         else {
                             setUsers(function (prev) { return tslib_1.__spreadArray(tslib_1.__spreadArray([], prev, true), (0, index_1.sortBy)(result_1.users, ["displayName"]), true); });
                         }
+                        // eslint-disable-next-line require-atomic-updates
                         hasMoreRef.current = result_1.hasMore;
+                        // eslint-disable-next-line require-atomic-updates
                         nextPageTokenRef.current = result_1.nextPageToken;
                         return [3 /*break*/, 5];
                     case 3:
                         err_1 = _a.sent();
                         errorMessage = err_1 instanceof Error ? err_1.message : "Failed to load users";
                         setError(errorMessage);
+                        // eslint-disable-next-line require-atomic-updates
                         hasMoreRef.current = false; // Stop trying to load more on error
                         logError("GridView", "Error loading users", err_1, m365_hooks_1.ErrorType.SYSTEM, sanitizeUserData({
                             isInitial: isInitial,
@@ -262,17 +262,6 @@ var GridView = function (_a) {
             console.error("Failed to load initial users:", error);
         });
     }, [context, hasInitiallyLoaded]);
-    /* // calculate the number of cards to fit on container height
-    if (containerRef?.current) {
-      const cardHeight = 232;
-      const containerHeight = containerRef.current.clientHeight;
-      console.log(`Container height: ${containerHeight}px`);
-      const cardsToShow = Math.floor(containerHeight / cardHeight);
-      console.log(`Container height: ${containerHeight}px, Cards to show: ${cardsToShow}`);
-      const newheight = (cardsToShow + 1) * cardHeight;
-     console.log(`Container height set to: ${newheight}px`);
-      // container.style.height = `${newheight}px`;
-    }  */
     return (React.createElement("div", { className: containerStyles, ref: containerRef },
         isLoading && users.length === 0 && !error && (React.createElement(SkeletonCards_1.SkeletonCards, { count: 12 })),
         !isLoading && users.length === 0 && hasInitiallyLoaded && !error && (React.createElement(RenderNoUsers_1.RenderNoUsers, { isSearchMode: isSearchMode })),

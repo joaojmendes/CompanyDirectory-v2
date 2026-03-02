@@ -70,9 +70,7 @@ var EmployeesView = function (_a) {
         }
     }, []);
     var handleSearchStart = (0, react_1.useCallback)(function () {
-        // Search initiated - no logging needed for normal operation
         setIsSearchStarted(true);
-        console.log("AI search started", isSearchStarted);
     }, []);
     var handleSearchError = (0, react_1.useCallback)(function (error, originalInput) {
         setIsSearchStarted(false);

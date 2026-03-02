@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useRenderAttributeStyles = void 0;
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 var css_1 = require("@emotion/css");
 var react_components_1 = require("@fluentui/react-components");
 var useRenderAttributeStyles = function () {

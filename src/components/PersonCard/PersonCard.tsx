@@ -37,12 +37,6 @@ export const PersonCard: React.FunctionComponent<IPersonCardProps> = (
   const { executeAction } = useCardActions({ person });
 
   const handleCardCClick = React.useCallback(() => {
-    // When clicking a person card, set them as the selected user
-    // This will trigger lazy loading of their organization data
-
-    console.log(
-      `PersonCard clicked: ${person.displayName} (${person.id}) - Triggering lazy load of organization data`
-    );
     setAppGlobalState((prevState) => ({
       ...prevState,
       selectedUser: {...person, },

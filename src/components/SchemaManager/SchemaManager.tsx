@@ -23,7 +23,6 @@ export const SchemaManager: React.FunctionComponent<ISchemaManagerProps> = ({
   context,
   isOpen,
   onClose,
-  className,
 }) => {
   return (
     <Drawer
@@ -50,12 +49,9 @@ export const SchemaManager: React.FunctionComponent<ISchemaManagerProps> = ({
       </DrawerHeader>
 
       <DrawerBody>
-        <UpdateUserSchema 
+        <UpdateUserSchema
           context={context}
           onClose={onClose}
-          onSuccess={(userId, data) => {
-            console.log("Schema updated successfully for user:", userId, data);
-          }}
         />
       </DrawerBody>
     </Drawer>

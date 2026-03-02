@@ -35,10 +35,8 @@ export const UpdateUserSchemaManager: React.FunctionComponent<IUpdateUserSchemaM
     setIsDrawerOpen(false);
   }, []);
 
-  const handleSuccess = React.useCallback((userId: string, data: IUserSchemaExtensionData) => {
-    console.log("User schema updated successfully:", { userId, data });
-    // Optionally keep drawer open or close it
-    // setIsDrawerOpen(false);
+  const handleSuccess = React.useCallback((_userId: string, _data: IUserSchemaExtensionData) => {
+    // Schema update succeeded
   }, []);
 
   return (

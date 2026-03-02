@@ -2,8 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RenderPeers = void 0;
 var tslib_1 = require("tslib");
-/* eslint-disable @typescript-eslint/no-floating-promises */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 var React = tslib_1.__importStar(require("react"));
 var react_components_1 = require("@fluentui/react-components");
 var react_controls_1 = require("@spteck/react-controls");
@@ -52,7 +50,7 @@ var RenderPeers = function () {
                         return [2 /*return*/];
                 }
             });
-        }); })();
+        }); })().catch(function () { });
     }, []);
     var isCurrentUser = React.useCallback(function (userId) {
         return userId === context.pageContext.legacyPageContext.aadUserId;

@@ -91,9 +91,7 @@ export const EmployeesView: React.FunctionComponent<IEmployeesViewProps> = ({
   }, []);
 
   const handleSearchStart = useCallback(() => {
-    // Search initiated - no logging needed for normal operation
     setIsSearchStarted(true);
-    console.log("AI search started", isSearchStarted);
   }, []);
 
   const handleSearchError = useCallback(

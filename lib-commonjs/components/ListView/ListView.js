@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListView = void 0;
 var tslib_1 = require("tslib");
-/* eslint-disable require-atomic-updates */
 var React = tslib_1.__importStar(require("react"));
 var PersonCard_1 = require("../PersonCard");
 var react_components_1 = require("@fluentui/react-components");
@@ -163,6 +162,7 @@ var ListView = function (_a) {
                         }));
                         return [3 /*break*/, 5];
                     case 4:
+                        // eslint-disable-next-line require-atomic-updates
                         isScrollLoadingRef.current = false;
                         return [7 /*endfinally*/];
                     case 5: return [2 /*return*/];

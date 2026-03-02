@@ -69,31 +69,22 @@ export const UpdateUserSchema: React.FunctionComponent<IUpdateUserSchemaProps> =
     let isCancelled = false;
     
     const loadUserData = async (): Promise<void> => {
-      console.log("Loading user data for:", { 
-        userId: selectedUser?.id, 
-        displayName: selectedUser?.displayName 
-      });
-      
       if (!selectedUser?.id) {
-        console.log("No user selected, skipping data load");
         setHasLoadedUserData(false);
         return;
       }
 
       setIsLoadingUserData(true);
-      setSuccessMessage(""); // Clear any previous success message
+      setSuccessMessage("");
       
       try {
-        console.log("Fetching schema extension data for user:", selectedUser.id);
         const userData = await getUserSchemaExtension(selectedUser.id);
-        console.log("Received user data:", userData);
         
         if (!isCancelled && userData) {
           setFormData(userData);
         }
         if (!isCancelled) {
           setHasLoadedUserData(true);
-          console.log("User data loaded successfully");
         }
       } catch (error) {
         console.error("Error loading user schema data:", error);
@@ -118,13 +109,6 @@ export const UpdateUserSchema: React.FunctionComponent<IUpdateUserSchemaProps> =
   // Handle user selection
   const handleUserSelection = React.useCallback((users: IUserProfile[]) => {
     const user = users.length > 0 ? users[0] : undefined;
-    console.log("User selection changed:", { 
-      selectedUsers: users, 
-      selectedUser: user,
-      userId: user?.id,
-      displayName: user?.displayName 
-    });
-    
     setSelectedUser(user);
     setSuccessMessage("");
     if (!user) {
@@ -158,37 +142,22 @@ export const UpdateUserSchema: React.FunctionComponent<IUpdateUserSchemaProps> =
     event.preventDefault();
     event.stopPropagation();
     
-    console.log("Form submit triggered. Current state:", {
-      selectedUser: selectedUser?.displayName,
-      selectedUserId: selectedUser?.id,
-      hasLoadedUserData,
-      isLoading,
-      isLoadingUserData
-    });
-    
-    // Clear any previous messages
     setSuccessMessage("");
     
-    // Validate that a user is selected
     if (!selectedUser?.id) {
-      console.error("No user selected for update");
       return;
     }
 
-    // Validate that user data has been loaded
     if (!hasLoadedUserData) {
-      console.error("User data not loaded yet");
       return;
     }
 
     try {
-      console.log("Updating user schema for:", selectedUser.displayName, "with data:", formData);
       await updateUserSchemaExtension(selectedUser.id, formData);
       setSuccessMessage(`Successfully updated schema properties for ${selectedUser.displayName}`);
       onSuccess?.(selectedUser.id, formData);
     } catch (error) {
       console.error("Error updating user schema:", error);
-      // Error is handled by the hook
     }
   }, [selectedUser, formData, updateUserSchemaExtension, onSuccess, hasLoadedUserData]);
 

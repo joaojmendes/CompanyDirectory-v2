@@ -1,4 +1,3 @@
-/* eslint-disable require-atomic-updates */
 import * as React from "react";
 
 import { ErrorType, useLogging } from "@spteck/m365-hooks";
@@ -76,9 +75,7 @@ export const GridView: React.FunctionComponent<IGridViewProps> = ({
         return;
       }
 
-      // SCROLL PROTECTION: Prevent multiple simultaneous scroll requests
       if (!isInitial && isScrollLoadingRef.current) {
-        console.log("Scroll request blocked - already loading");
         return;
       }
 
@@ -105,12 +102,15 @@ export const GridView: React.FunctionComponent<IGridViewProps> = ({
           ]);
         }
 
+        // eslint-disable-next-line require-atomic-updates
         hasMoreRef.current = result.hasMore;
+        // eslint-disable-next-line require-atomic-updates
         nextPageTokenRef.current = result.nextPageToken;
       } catch (err) {
         const errorMessage =
           err instanceof Error ? err.message : "Failed to load users";
         setError(errorMessage);
+        // eslint-disable-next-line require-atomic-updates
         hasMoreRef.current = false; // Stop trying to load more on error
 
         logError(
@@ -318,17 +318,7 @@ export const GridView: React.FunctionComponent<IGridViewProps> = ({
     });
   }, [context, hasInitiallyLoaded]);
 
-  /* // calculate the number of cards to fit on container height
-  if (containerRef?.current) {
-    const cardHeight = 232;
-    const containerHeight = containerRef.current.clientHeight;
-    console.log(`Container height: ${containerHeight}px`);
-    const cardsToShow = Math.floor(containerHeight / cardHeight);
-    console.log(`Container height: ${containerHeight}px, Cards to show: ${cardsToShow}`);
-    const newheight = (cardsToShow + 1) * cardHeight;
-   console.log(`Container height set to: ${newheight}px`);
-    // container.style.height = `${newheight}px`;
-  }  */
+
 
 
   return (

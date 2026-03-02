@@ -56,9 +56,7 @@ export const Actions: React.FunctionComponent<IActionsProps> = (
 
  const enableAction = React.useMemo(
    () => (action: ECardActions) => {
-    
-     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-     const  user = person as any;
+     const user = person as IOrganizationNode & IManager & IUserProfile;
      if (!person) return false;
       switch (action) {
         case ECardActions.Call:

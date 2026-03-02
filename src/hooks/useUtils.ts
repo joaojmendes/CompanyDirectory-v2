@@ -206,7 +206,6 @@ export const useUtils = (): IUtils => {
 
         // Check if user already has a color assigned
         if (colorMappings[aadUserId]) {
-          console.log(`Using cached color for user: ${aadUserId}`);
           return colorMappings[aadUserId];
         }
 
@@ -232,9 +231,6 @@ export const useUtils = (): IUtils => {
         colorMappings[aadUserId] = availableColor;
         await setData(cacheKey, colorMappings);
 
-        console.log(
-          `Assigned new color to user ${aadUserId}: ${availableColor}`
-        );
         return availableColor;
       } catch (error) {
         console.error("Error managing user colors cache:", error);
@@ -249,7 +245,6 @@ export const useUtils = (): IUtils => {
   const clearUserColors = useCallback(async (): Promise<void> => {
     try {
       await clearAllCache();
-      console.log("User colors cache cleared");
     } catch (error) {
       console.error("Error clearing user colors cache:", error);
     }
