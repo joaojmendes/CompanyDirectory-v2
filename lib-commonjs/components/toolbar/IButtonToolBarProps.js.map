@@ -1,0 +1,1 @@
+{"version":3,"file":"IButtonToolBarProps.js","sourceRoot":"","sources":["../../../src/components/toolbar/IButtonToolBarProps.tsx"],"names":[],"mappings":"","sourcesContent":["import { IButtonItem } from \"./IButtonItem\";\n\nexport interface IButtonToolBarProps {\n  items: IButtonItem[];\n  selectedItemId: string | undefined;\n  onSelectedItem: (itemId: string) => void;\n}\n"]}

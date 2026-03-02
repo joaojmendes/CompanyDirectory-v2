@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "modern-organizationchart",
+    "componentType": "webpart",
+    "template": "react",
+    "componentName": "OrganizationChart",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.14.0",
+    "sdksVersions": {},
+    "version": "1.21.1",
+    "libraryName": "modern-organizationchart",
+    "libraryId": "1669c222-048f-4747-b807-07037cdbd3bf",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionShortDescription": "modern-organizationchart description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  }
+}

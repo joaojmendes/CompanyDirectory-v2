@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/components/RenderAttribute/index.ts"],"names":[],"mappings":";;;;AAAA,4DAAkC;AAClC,qDAA+D;AAAtD,2IAAA,OAAO,OAAmB","sourcesContent":["export * from './RenderAttribute';\nexport { default as RenderAttribute } from './RenderAttribute';\n"]}

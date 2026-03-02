@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/components/RenderSelectedUser/index.ts"],"names":[],"mappings":";;;AAAA,2DAA0D;AAAjD,wHAAA,kBAAkB,OAAA","sourcesContent":["export { RenderSelectedUser } from './RenderSelectedUser';\nexport type { IRenderSelectedUserProps } from './RenderSelectedUser';\n"]}

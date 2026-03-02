@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "company-directory-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/companyDirectory/CompanyDirectoryWebPart.js",
+          "manifest": "./src/webparts/companyDirectory/CompanyDirectoryWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CompanyDirectoryWebPartStrings": "lib/webparts/companyDirectory/loc/{locale}.js"
+  }
+}

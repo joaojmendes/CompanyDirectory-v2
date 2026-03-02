@@ -1,0 +1,1 @@
+{"version":3,"file":"IButtonItem.js","sourceRoot":"","sources":["../../../src/components/toolbar/IButtonItem.ts"],"names":[],"mappings":"","sourcesContent":["export interface IButtonItem {\n    id: string;\n    name: string;\n    icon: JSX.Element | string\n  }"]}

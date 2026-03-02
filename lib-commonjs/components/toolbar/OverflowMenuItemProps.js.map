@@ -1,0 +1,1 @@
+{"version":3,"file":"OverflowMenuItemProps.js","sourceRoot":"","sources":["../../../src/components/toolbar/OverflowMenuItemProps.tsx"],"names":[],"mappings":"","sourcesContent":["import { IButtonItem } from './IButtonItem';\n\nexport interface OverflowMenuItemProps {\n  item: IButtonItem;\n  onSelectedItem: (itemId: string) => void;\n}\n"]}
