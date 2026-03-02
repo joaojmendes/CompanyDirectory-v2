@@ -39,8 +39,7 @@ Company Directory solves this by combining:
 1. **AI-Powered Natural Language Search** — Ask questions in plain English; Azure OpenAI translates them to Graph API queries
 2. **Interactive Organization Chart** — Navigate the full management chain with lazy-loaded hierarchy
 3. **Rich Employee Cards** — One-click actions: Teams Chat, Email, Phone Call, Video Call
-4. **Microsoft Graph Schema Extensions** — Store custom skills and projects directly on user profiles, searchable by AI
-5. **Multi-host support** — Works in SharePoint, Microsoft Teams, Outlook, and Office
+4. **Multi-host support** — Works in SharePoint, Microsoft Teams, Outlook, and Office
 
 ## Used SharePoint Framework Version
 
@@ -58,7 +57,7 @@ Company Directory solves this by combining:
 ## Prerequisites
 
 - Node.js >= 22.14.0
-- Microsoft 365 tenant with Graph API permissions (`User.Read.All`, `Application.ReadWrite.All`)
+- Microsoft 365 tenant with Graph API permissions (`User.Read.All`)
 - Azure OpenAI endpoint for AI search functionality (optional — directory works without AI)
 - SPFx v1.22.2 development environment
 
@@ -108,8 +107,7 @@ Company Directory solves this by combining:
         │ - Users         │     │  - NLP to OData    │
         │ - Photos        │     │  - Filter Query    │
         │ - Manager chain │     │    Generation      │
-        │ - Direct Reports│     │  - Schema Ext      │
-        │ - Schema Ext    │     │    Skills/Projects │
+        │ - Direct Reports│     │                    │
         └─────────────────┘     └────────────────────┘
 ```
 
@@ -135,7 +133,6 @@ CompanyDirectoryWebPart (SPFx Entry Point)
   └── CompanyDirectory (Theme + Providers)
         └── CompanyDirectoryControl (Layout Controller)
               ├── ButtonToolBar (Directory / Org Chart toggle)
-              ├── SchemaManager (Drawer for Schema Extension admin)
               │
               ├── [Tab: Employee Directory]
               │   └── EmployeesView
@@ -208,15 +205,7 @@ Each person card features:
   - Video Call (Teams video)
   - LinkedIn profile lookup
 
-### 5. Microsoft Graph Schema Extensions
-
-Custom user attributes stored directly on Microsoft Graph user objects:
-- **5 Skills fields** (`skillsline1` through `skillsline5`)
-- **5 Projects fields** (`projectsline1` through `projectsline5`)
-- Admin UI (Schema Manager drawer) to update any user's skills and projects
-- **AI-searchable**: The AI search understands these custom fields and can filter by skills/projects
-
-### 6. Multi-Host Support
+### 5. Multi-Host Support
 
 Runs natively in:
 - SharePoint Online pages
@@ -226,7 +215,7 @@ Runs natively in:
 
 Automatic theme detection and adaptation (light, dark, high contrast).
 
-### 7. Performance & Caching
+### 6. Performance & Caching
 
 - **IndexedDB caching** with configurable TTL (2h for org data, 7h for color assignments)
 - **Lazy loading** for organization chart nodes
@@ -256,7 +245,7 @@ Automatic theme detection and adaptation (light, dark, high contrast).
    npm run build:prod
    ```
 5. Deploy the `.sppkg` from `sharepoint/solution/` to your SharePoint App Catalog
-6. Approve the Graph API permissions (`User.Read.All`, `Application.ReadWrite.All`) in SharePoint Admin Center
+7. Approve the Graph API permissions (`User.Read.All`) in SharePoint Admin Center
 
 ---
 
@@ -265,7 +254,6 @@ Automatic theme detection and adaptation (light, dark, high contrast).
 | Permission                    | Type        | Purpose                                    |
 | ----------------------------- | ----------- | ------------------------------------------ |
 | `User.Read.All`              | Delegated   | Read user profiles, photos, org hierarchy |
-| `Application.ReadWrite.All`  | Delegated   | Create/update Graph Schema Extensions     |
 
 ---
 
@@ -277,7 +265,6 @@ This solution demonstrates advanced SPFx capabilities:
 
 - **AI Integration**: Azure OpenAI converts natural language to Graph API filters — going far beyond out-of-the-box search
 - **Modern Architecture**: Jotai atomic state management, Emotion CSS-in-JS, Fluent UI v9, custom React hooks
-- **Graph Schema Extensions**: Extends the Microsoft Graph user model with custom skills and projects data, searchable through AI
 - **Performance Engineering**: IndexedDB caching, lazy loading, infinite scroll, skeleton states, debounced handlers
 - **Multi-host**: Runs across SharePoint, Teams, Outlook, and Office with theme adaptation
 - **Rich UX**: Org chart navigation, person cards with quick actions, grid/list toggling, responsive design
@@ -288,7 +275,7 @@ This solution turns SharePoint into an AI-powered knowledge experience:
 
 - **Azure OpenAI as the brain**: Translates human questions into precise Microsoft Graph queries
 - **SharePoint as the grounding layer**: All user data lives in Microsoft 365 / Microsoft Graph, governed by SharePoint/Entra ID policies
-- **Smart retrieval**: The AI understands custom schema extensions (skills, projects) and maps natural language to OData filters
+- **Smart retrieval**: The AI maps natural language to OData filters for precise results
 - **Interactive knowledge experience**: Users discover colleagues, expertise, and organizational structure through conversation
 
 ---
@@ -297,10 +284,10 @@ This solution turns SharePoint into an AI-powered knowledge experience:
 
 | Criteria (from Official Rules) | Weight | How Company Directory Addresses It |
 |---|---|---|
-| **Innovation** | 20% | AI-powered NLP search over Microsoft Graph; Schema Extensions for custom user attributes; natural language to OData translation |
+| **Innovation** | 20% | AI-powered NLP search over Microsoft Graph; natural language to OData translation |
 | **Real-World Impact** | 20% | Solves the universal problem of finding the right person with the right skills in large orgs; saves time vs. manual filtering |
 | **Technical Usability & Solution Quality** | 20% | Production-grade code with TypeScript, error boundaries, logging, caching, skeleton states, responsive design, multi-host |
-| **Alignment with Hackathon Category** | 40% | SPFx web part integrating AI (Azure OpenAI) with Microsoft Graph, custom schema extensions, and rich UX beyond OOB |
+| **Alignment with Hackathon Category** | 40% | SPFx web part integrating AI (Azure OpenAI) with Microsoft Graph and rich UX beyond OOB |
 
 ---
 
@@ -326,8 +313,6 @@ src/
 │   ├── RenderPeers/                  # Peers grid
 │   ├── RenderNoUsers/                # Empty state
 │   ├── RenderAttribute/              # Reusable attribute display
-│   ├── SchemaManager/                # Schema extension admin drawer
-│   ├── UpdateExtendAttribute/        # Skills/projects editor
 │   ├── UserPicker/                   # People picker with Graph search
 │   └── toolbar/                      # Generic overflow toolbar
 ├── constants/
@@ -342,11 +327,9 @@ src/
 │   ├── useCardActions.ts             # Teams chat/email/call/video actions
 │   ├── useGraphAPIs.ts               # Microsoft Graph API operations
 │   ├── useOrganizationChartData.ts   # Org chart data management
-│   ├── useSchemaExtensionUpdate.ts   # Schema extension CRUD
 │   └── useUtils.ts                   # AI response parser, colors, utilities
 ├── models/
 │   ├── IAppGlobalState.ts            # Global state interface
-│   ├── ISchemaExtension.ts           # Schema extension types
 │   └── IUserData.ts                  # User, Manager, DirectReport, OrgNode types
 ├── openAI/
 │   └── instructions.ts               # AI system prompt for NLP-to-OData
@@ -364,7 +347,6 @@ src/
 - [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/) — AI service
 - [Fluent UI React v9](https://react.fluentui.dev/) — UI component library
 - [Jotai](https://jotai.org/) — Atomic state management
-- [Microsoft Graph Schema Extensions](https://learn.microsoft.com/en-us/graph/extensibility-schema-groups) — Custom user properties
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) — Community guidance
 - [SharePoint Hackathon 2026](https://github.com/SharePoint/sharepoint-hackathon) — Official hackathon repository
 
