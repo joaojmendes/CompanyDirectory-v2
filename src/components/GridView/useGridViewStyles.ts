@@ -21,8 +21,8 @@ export const useGridViewStyles = (globalSState: IAppGlobalState): {
   const gridStyles = css({
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-    gap: "20px",
-    padding: 15,
+    gap: tokens.spacingVerticalL,
+    padding: tokens.spacingVerticalM,
    
   
   });
@@ -30,8 +30,8 @@ export const useGridViewStyles = (globalSState: IAppGlobalState): {
   const containerStyles = css({
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-    gap: "20px",
-    padding: 15,
+    gap: tokens.spacingVerticalL,
+    padding: tokens.spacingVerticalM,
     maxHeight: maxHeight,
     overflowY: "auto",
  
@@ -70,11 +70,11 @@ export const useGridViewStyles = (globalSState: IAppGlobalState): {
   });
 
   const searchIndicatorStyles = css({
-    padding: "10px 15px",
+    padding: `${tokens.spacingVerticalS} ${tokens.spacingVerticalM}`,
     backgroundColor: tokens.colorNeutralBackground2,
-    borderRadius: "4px",
-    margin: "0 15px 10px 15px",
-    fontSize: "14px",
+    borderRadius: tokens.borderRadiusSmall,
+    margin: `0 ${tokens.spacingVerticalM} ${tokens.spacingVerticalS} ${tokens.spacingVerticalM}`,
+    fontSize: tokens.fontSizeBase300,
     color: tokens.colorNeutralForeground1,
   });
 

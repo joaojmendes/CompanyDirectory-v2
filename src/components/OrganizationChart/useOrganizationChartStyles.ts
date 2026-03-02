@@ -20,9 +20,9 @@ export const useOrganizationChartStyles = (
   const directReportsContainerGrid = css({
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(260px, max-content))",
-    gap: "20px",
+    gap: tokens.spacingVerticalL,
     width: "100%",
-    paddingTop: "20px",
+    paddingTop: tokens.spacingVerticalL,
     justifyContent: "center",
     justifyItems: "stretch",
   });

@@ -21,9 +21,9 @@ export const useSkeletonCardStyles = (): ISkeletonCardStyles => {
   });
 
   const cardStyles = css({
-    padding: 20,
+    padding: tokens.spacingVerticalL,
     minWidth: 260,
-    borderRadius: "8px",
+    borderRadius: tokens.borderRadiusMedium,
     position: "relative",
     backgroundColor: tokens.colorNeutralBackground1,
     boxShadow: tokens.shadow4,
@@ -44,7 +44,7 @@ export const useSkeletonCardStyles = (): ISkeletonCardStyles => {
       )`,
       backgroundSize: "200px 100%",
       animation: `${shimmer} 2s infinite linear`,
-      borderRadius: "8px",
+      borderRadius: tokens.borderRadiusMedium,
       zIndex: 1,
       opacity: 0.6,
     },

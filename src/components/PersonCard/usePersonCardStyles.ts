@@ -46,9 +46,9 @@ export const usePersonCardStyles = (): IUsePersonCardStylesResult => {
 
   const styles = {
     card: css({
-      padding: 20,
+      padding: tokens.spacingVerticalL,
       minWidth: 260,
-      borderRadius: "8px",
+      borderRadius: tokens.borderRadiusMedium,
 
       position: "relative",
     }),

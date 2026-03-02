@@ -1,5 +1,6 @@
 import { IAppGlobalState } from "../../models/IAppGlobalState";
 import { css } from "@emotion/css";
+import { tokens } from "@fluentui/react-components";
 
 export interface IOrganizationChartStyles {
   directReportsContainer: string;
@@ -14,9 +15,9 @@ export const useCompanyDirectoryStyles = (
   const directReportsContainer = css({
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-    gap: "20px",
+    gap: tokens.spacingVerticalL,
     width: "100%",
-    paddingTop: "20px",
+    paddingTop: tokens.spacingVerticalL,
   });
   const container = css({
     position: "relative",
