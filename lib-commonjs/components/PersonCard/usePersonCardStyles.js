@@ -33,9 +33,9 @@ var usePersonCardStyles = function () {
     }); }, [userColors, generateColorForManagers]);
     var styles = {
         card: (0, css_1.css)({
-            padding: 20,
+            padding: react_components_1.tokens.spacingVerticalL,
             minWidth: 260,
-            borderRadius: "8px",
+            borderRadius: react_components_1.tokens.borderRadiusMedium,
             position: "relative",
         }),
         textStyle: (0, css_1.css)({

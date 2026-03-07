@@ -11,14 +11,14 @@ var useGridViewStyles = function (globalSState) {
     var gridStyles = (0, css_1.css)({
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-        gap: "20px",
-        padding: 15,
+        gap: react_components_1.tokens.spacingVerticalL,
+        padding: react_components_1.tokens.spacingVerticalM,
     });
     var containerStyles = (0, css_1.css)({
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-        gap: "20px",
-        padding: 15,
+        gap: react_components_1.tokens.spacingVerticalL,
+        padding: react_components_1.tokens.spacingVerticalM,
         maxHeight: maxHeight,
         overflowY: "auto",
         height: '100%',
@@ -51,11 +51,11 @@ var useGridViewStyles = function (globalSState) {
         gridColumn: "1 / -1", // Span all columns
     });
     var searchIndicatorStyles = (0, css_1.css)({
-        padding: "10px 15px",
+        padding: "".concat(react_components_1.tokens.spacingVerticalS, " ").concat(react_components_1.tokens.spacingVerticalM),
         backgroundColor: react_components_1.tokens.colorNeutralBackground2,
-        borderRadius: "4px",
-        margin: "0 15px 10px 15px",
-        fontSize: "14px",
+        borderRadius: react_components_1.tokens.borderRadiusSmall,
+        margin: "0 ".concat(react_components_1.tokens.spacingVerticalM, " ").concat(react_components_1.tokens.spacingVerticalS, " ").concat(react_components_1.tokens.spacingVerticalM),
+        fontSize: react_components_1.tokens.fontSizeBase300,
         color: react_components_1.tokens.colorNeutralForeground1,
     });
     var toolbarDividerStyles = (0, css_1.css)({

@@ -43,7 +43,7 @@ Company Directory solves this by combining:
 
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/SPFx-1.21.1-green.svg)
+![version](https://img.shields.io/badge/SPFx-1.22.2-green.svg)
 
 ## Applies to
 

@@ -11,9 +11,9 @@ var useOrganizationChartStyles = function (globalState) {
     var directReportsContainerGrid = (0, css_1.css)({
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(260px, max-content))",
-        gap: "20px",
+        gap: react_components_1.tokens.spacingVerticalL,
         width: "100%",
-        paddingTop: "20px",
+        paddingTop: react_components_1.tokens.spacingVerticalL,
         justifyContent: "center",
         justifyItems: "stretch",
     });

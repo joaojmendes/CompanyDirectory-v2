@@ -14,9 +14,9 @@ var useSkeletonCardStyles = function () {
         }
     });
     var cardStyles = (0, css_1.css)({
-        padding: 20,
+        padding: react_components_1.tokens.spacingVerticalL,
         minWidth: 260,
-        borderRadius: "8px",
+        borderRadius: react_components_1.tokens.borderRadiusMedium,
         position: "relative",
         backgroundColor: react_components_1.tokens.colorNeutralBackground1,
         boxShadow: react_components_1.tokens.shadow4,
@@ -32,7 +32,7 @@ var useSkeletonCardStyles = function () {
             background: "linear-gradient(\n        90deg,\n        transparent,\n        ".concat(react_components_1.tokens.colorNeutralBackground1Hover, ",\n        transparent\n      )"),
             backgroundSize: "200px 100%",
             animation: "".concat(shimmer, " 2s infinite linear"),
-            borderRadius: "8px",
+            borderRadius: react_components_1.tokens.borderRadiusMedium,
             zIndex: 1,
             opacity: 0.6,
         },

@@ -22,7 +22,6 @@ import { useAtom } from "jotai";
 import { useEmployeesViewStyles } from "./useEmployeesViewStyles";
 import { useLogging } from "@spteck/m365-hooks";
 import { useUtils } from "../../hooks/useUtils";
- 
 
 export interface IEmployeesViewProps {
   onUserSelect?: (user: IUserProfile) => void;
@@ -73,7 +72,7 @@ export const EmployeesView: React.FunctionComponent<IEmployeesViewProps> = ({
             operation: "parseAIResponse",
             originalResponse:
               results.substring(0, 200) + (results?.length > 200 ? "..." : ""),
-          })
+          }),
         );
         // For non-JSON responses
         setIsSearchMode(true);
@@ -106,10 +105,10 @@ export const EmployeesView: React.FunctionComponent<IEmployeesViewProps> = ({
           component: "EmployeesView",
           operation: "aiSearchError",
           originalInput,
-        })
+        }),
       );
     },
-    []
+    [],
   );
 
   const RenderIsSearching = React.useCallback(() => {
@@ -172,7 +171,6 @@ export const EmployeesView: React.FunctionComponent<IEmployeesViewProps> = ({
 
         {/* Conditional rendering based on layout */}
         <Stack
-          
           paddingLeft="12px"
           paddingBottom="20px"
           paddingRight="12px"

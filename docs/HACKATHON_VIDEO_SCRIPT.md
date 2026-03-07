@@ -1,160 +1,134 @@
-# Company Directory — Hackathon Demo Video Script
+# Company Directory - Hackathon Video Script
 
-> **Target Duration:** 3–4 minutes  
-> **Format:** Screen recording with voiceover  
-> **Tool:** QuickTime (`Cmd+Shift+5`) or OBS + your mic  
-> **Resolution:** 1920x1080, browser zoom 110%
+> **Target Duration:** 6-7 minutes (max 8 minutes)
+> **Format:** Screen recording with narration (face cam optional)
 
 ---
 
-## Before You Record
+## Segment 1: Introduction (0:00 - 0:45)
 
-1. Open Edge/Chrome with a clean profile (no bookmarks bar, no notifications)
-2. Navigate to `https://spteckm365dev.sharepoint.com/SitePages/Company-Directory.aspx`
-3. Make sure the web part is fully loaded with users visible
-4. Pre-test these AI queries to confirm they return results:
-   - "Find all engineers in Porto"
-   - "Managers in the Marketing department"
-   - "Guest users"
-5. Close all other tabs, silence notifications
+**Show:** Title slide or the web part in SharePoint
 
----
-
-## Segment 1: Hook + Grid View (0:00 – 0:40)
-
-**On screen:** Grid View loaded with employee cards
-
-**Say:**
-> "This is Company Directory — an AI-powered people directory built with SharePoint Framework 1.22.2, Fluent UI v9, and Azure OpenAI.
+**Script:**
+> "Hi, I'm João Mendes, and this is **Company Directory** — an AI-powered employee directory and organization chart built with SharePoint Framework 1.22.2.
 >
-> You're looking at the employee directory in Grid View. Each card shows the person's name, job title, department, and office location — all pulled live from Microsoft Graph.
+> Every organization faces the same challenge: *How do you find the right person with the right skills, fast?* Traditional directories let you search by name — that's it. But what if you could just *ask a question* in natural language and get instant results?
 >
-> Cards load automatically as you scroll — 100 at a time with infinite scroll."
-
-**Do:**
-- Slowly scroll down to trigger infinite scroll (show the progress bar loading)
-- Pause to let the viewer see cards populating
+> That's exactly what Company Directory does. Let me show you."
 
 ---
 
-## Segment 2: Card Actions + List View (0:40 – 1:15)
+## Segment 2: Employee Directory — Grid & List Views (0:45 - 2:00)
 
-**Say:**
-> "Every card has a quick actions menu."
+**Show:** Navigate to the Company Directory web part on a SharePoint page
 
-**Do:**
-- Click the three-dot menu on a card
-- Point to: "Start a chat, send an email, make a call, start a video call — all integrated with Microsoft Teams."
-- Close the menu
+**Demo Steps:**
+1. Show the **Grid View** — responsive card layout, scroll to show infinite scroll loading more users
+2. Click a **PersonCard** — point out avatar, job title, department, office, guest badge
+3. Open the **Actions menu** on a card — show Chat, Email, Call, Video options
+4. Switch to **List View** — show the sortable/resizable data grid
+5. Resize a column, sort by Department
+6. Scroll down to trigger infinite scroll in list view
 
-**Say:**
-> "You can also switch to a List View for a denser, data-grid experience."
-
-**Do:**
-- Click the List icon (top right, next to search)
-- Show the list with columns: Name, Email, Department, Mobile, Office, User Type
-- Scroll down briefly to show infinite scroll works here too
-
----
-
-## Segment 3: AI-Powered Search — THE STAR (1:15 – 2:30)
-
-> **This is the most important segment. Go slow. Let the viewer read the query and results.**
-
-**Say:**
-> "Now the feature that sets this apart — AI-powered natural language search."
-
-**Do:**
-- Click on the search bar (pill-shaped, with AI icon)
-
-**Say:**
-> "Instead of building filters, you just type a question in plain English. Azure OpenAI translates it into a Microsoft Graph OData query behind the scenes."
-
-**Demo Query 1:**
-- Type: **"Find all engineers in Porto"**
-- Wait for results to appear
-- Say: *"The AI understood 'engineers' maps to the job title field and 'Porto' maps to the office location. No filter dropdowns needed."*
-
-**Demo Query 2:**
-- Clear the search, type: **"Managers in the Marketing department"**
-- Wait for results
-- Say: *"It combines job title pattern matching with department filtering — something that would normally require a multi-field form."*
-
-**Demo Query 3:**
-- Clear the search, type: **"Guest users"**
-- Wait for results
-- Say: *"It even identifies external users by their user type. Any question you can think of, just ask."*
+**Key points to mention:**
+- "100 users per page, loaded seamlessly with infinite scroll"
+- "Each card has one-click actions — Teams chat, email, or call"
+- "Works in both Grid and List layouts"
 
 ---
 
-## Segment 4: Organization Chart (2:30 – 3:20)
+## Segment 3: AI-Powered Natural Language Search (2:00 - 4:00)
 
-**Do:**
-- Click the **"Org. Chart"** tab
+> **This is the star of the demo — spend the most time here**
 
-**Say:**
-> "The second major feature is the interactive organization chart."
+**Show:** Click on the AI Search input
 
-**Do:**
-- Show the default view: President at the top, direct reports below
-- Say: *"It starts from the top of the organization. Each person shows their direct report count."*
+**Demo Steps:**
+1. Type: **"Find all engineers in Seattle"**
+   - Show how the AI spinner appears
+   - Highlight the generated filter description
+   - Show the filtered results
+2. Clear and type: **"People with React skills"**
+   - Show how it searches the custom Schema Extension fields
+   - Explain: "These skills are stored as Microsoft Graph Schema Extensions — custom data on user profiles"
+3. Clear and type: **"Managers in the Marketing department"**
+   - Show filtering by job title pattern AND department
+4. Clear and type: **"Guest users"**
+   - Show how it identifies external users
 
-**Do:**
-- Click on a manager card (e.g., Lucas Gallagher) to drill in
-- Say: *"Click anyone to drill into their team. The chart re-centers and loads their direct reports."*
-
-**Do:**
-- Use the **UserPicker** (search box, top right) — type a name and select
-- Say: *"Or search for anyone in the organization and jump directly to their position in the hierarchy."*
-
-**Do:**
-- Click the "Directory" tab to go back
-- Say: *"All organization data is cached in IndexedDB to keep navigation fast and reduce API calls."*
+**Key points to mention:**
+- "Azure OpenAI translates natural language into Microsoft Graph OData filters"
+- "It understands custom schema extension properties — skills, projects"
+- "No complex filter UI needed — just ask a question in plain English"
+- "The AI returns both the filter AND a human-readable description of what it found"
 
 ---
 
-## Segment 5: Closing (3:20 – 3:45)
+## Segment 4: Organization Chart (4:00 - 5:30)
 
-**Say:**
-> "Company Directory is built entirely on the Microsoft 365 platform — SharePoint Framework 1.22.2 with the new Heft toolchain, React 17, Fluent UI v9, Jotai for state management, and Azure OpenAI for the intelligence layer.
+**Show:** Click the "Organization Chart" tab in the toolbar
+
+**Demo Steps:**
+1. Show the default view — your own manager chain, direct reports, and peers
+2. Click on a **manager** in the chain — watch the chart re-center on that person
+3. Use the **UserPicker** to search for a different employee
+4. Show a user with many direct reports — demonstrate **lazy loading** (scroll to load more)
+5. Click a **direct report** to navigate into their sub-tree
+
+**Key points to mention:**
+- "Full manager chain from the selected user up to the top"
+- "Direct reports and peers loaded lazily for performance"
+- "Click anyone to navigate — the chart is fully interactive"
+- "All data cached in IndexedDB for 2 hours to reduce API calls"
+
+
+
+---
+
+## Segment 5: Technical Highlights & Multi-Host (6:30 - 7:15)
+
+**Show:** Quick slide or split-screen of the code / architecture diagram
+
+**Key points to mention:**
+- "Built with SPFx 1.21.1, React 17, Fluent UI v9, TypeScript"
+- "Jotai for atomic state management — lightweight and efficient"
+- "IndexedDB caching with TTL — 2 hours for org data, 7 days for visual assignments"
+- "Runs across SharePoint, Teams, Outlook, and Office"
+- *(If possible, quickly show the web part in Teams)*
+
+---
+
+## Segment 6: Closing (7:15 - 7:45)
+
+**Script:**
+> "Company Directory brings AI-powered search to every organization's people directory. Instead of building complex filters, you just ask a question. Instead of browsing static lists, you explore an interactive org chart.
 >
-> It runs across SharePoint, Microsoft Teams, Outlook, and Office — adapting its theme to each host.
+> It's built entirely on SharePoint Framework, Microsoft Graph, and Azure OpenAI — all the pieces of the modern Microsoft 365 platform working together.
 >
-> Instead of building complex filters, just ask a question. Instead of browsing static lists, explore an interactive org chart.
->
-> Thank you for watching."
+> Thank you for watching!"
 
 ---
 
-## Timing Summary
+## Recording Tips
 
-| Segment | Duration | Content |
-|---|---|---|
-| 1. Hook + Grid | 40s | Grid view, infinite scroll |
-| 2. Actions + List | 35s | Card menu, list view toggle |
-| 3. AI Search | 75s | 3 natural language queries |
-| 4. Org Chart | 50s | Drill-down, search, caching |
-| 5. Closing | 25s | Tech stack, multi-host, sign-off |
-| **Total** | **~3:45** | |
-
----
-
-## Pro Tips for Recording
-
-- **Pace:** Speak slightly slower than normal. Screen recordings feel faster to viewers.
-- **Mouse movement:** Move your cursor deliberately. Don't dart around — guide the viewer's eye.
-- **Pause after each AI query:** Give 2-3 seconds for results to populate before speaking about them.
-- **If you make a mistake:** Just pause, then re-say the line. You can trim it in iMovie later.
-- **Ending:** Hold the final frame for 3 seconds before stopping the recording.
+- **Resolution:** 1920x1080 minimum
+- **Audio:** Use a good microphone, quiet room
+- **Pre-populate data:** Make sure you have enough test users with diverse departments, locations, skills, and managers
+- **Pre-test AI queries:** Verify the demo queries work before recording
+- **Browser:** Use Edge or Chrome, zoom to 100-110% for readability
+- **Speed:** Don't rush the AI search segment — let the viewer see the query and results
+- **Clean environment:** Close notifications, use a clean browser profile
 
 ---
 
-## Screenshot Checklist (for README / submission)
+## Screenshot Checklist
+
+Take these screenshots for the README and submission:
 
 - [ ] Grid View with multiple employee cards
 - [ ] List View with sortable columns
-- [ ] AI Search with query and filtered results
-- [ ] Organization Chart — top-level with direct report counts
-- [ ] Organization Chart — drilled into a manager's team
+- [ ] AI Search with a query and results
+- [ ] Organization Chart with full hierarchy
 - [ ] Person Card with actions menu open
+- [ ] Schema Manager drawer with skills/projects
 - [ ] Web part running in Microsoft Teams (if possible)

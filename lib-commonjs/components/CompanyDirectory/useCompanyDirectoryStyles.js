@@ -2,13 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useCompanyDirectoryStyles = void 0;
 var css_1 = require("@emotion/css");
+var react_components_1 = require("@fluentui/react-components");
 var useCompanyDirectoryStyles = function (globalState) {
     var directReportsContainer = (0, css_1.css)({
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-        gap: "20px",
+        gap: react_components_1.tokens.spacingVerticalL,
         width: "100%",
-        paddingTop: "20px",
+        paddingTop: react_components_1.tokens.spacingVerticalL,
     });
     var container = (0, css_1.css)({
         position: "relative",
